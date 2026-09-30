@@ -10,8 +10,7 @@ const RETRYABLE_STATUS = [429, 503];
 /* Tiempo máximo de espera por modelo (ms) */
 const MODEL_TIMEOUT = 20000;
 
-/* Límites para proteger la cuota de la API */
-const MAX_MESSAGES = 20;
+/* Largo máximo por mensaje (protege la cuota sin recortar el historial) */
 const MAX_TEXT_LENGTH = 1000;
 
 /* Personalidad del personaje (vive solo en el servidor) */
@@ -54,8 +53,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Formato de mensajes inválido' });
   }
 
-  /* Solo los últimos mensajes y con un largo máximo */
-  const history = messages.slice(-MAX_MESSAGES).map((m) => ({
+  /* Historial completo, con un largo máximo por mensaje */
+  const history = messages.map((m) => ({
     role: m.role,
     text: m.text.slice(0, MAX_TEXT_LENGTH),
   }));

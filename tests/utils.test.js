@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { validateInput, formatMessage, parseGeminiResponse } from '../src/utils.js';
 
 /* Test 1: validateInput */
@@ -23,6 +23,20 @@ describe('formatMessage', () => {
     expect(message).toHaveProperty('text', 'Hola');
     expect(message).toHaveProperty('timestamp');
     expect(typeof message.timestamp).toBe('number');
+  });
+
+  /* Mock: Date.now*/
+  it('usa Date.now() como timestamp', () => {
+    vi.spyOn(Date, 'now').mockReturnValue(1700000000000);
+
+    const message = formatMessage('character', '¡Dattebayo!');
+
+    expect(Date.now).toHaveBeenCalled();
+    expect(message.timestamp).toBe(1700000000000);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks(); /* devuelve Date.now a su versión real */
   });
 });
 
