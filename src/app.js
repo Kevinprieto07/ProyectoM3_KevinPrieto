@@ -5,7 +5,7 @@ function homeView() {
   return `
     <section class="home">
       <div class="home-card">
-        <div class="avatar avatar-lg">N</div>
+        <img class="avatar avatar-lg" src="/src/assets/NarutoLogo.webp" alt="Naruto Uzumaki">
         <h1>¡Habla con Naruto Uzumaki, Dattebayo!</h1>
         <p>Ninja de la aldea de la hoja, Jinchūriki del zorro de las nueve colas, su sueño es ser Hokage.</p>
         <a href="/chat" class="btn" data-link>Chatear</a>
@@ -18,7 +18,7 @@ function chatView() {
   return `
     <section class="chat">
       <div class="chat-header">
-        <div class="avatar">N</div>
+        <img class="avatar" src="/src/assets/NarutoLogo.webp" alt="Naruto Uzumaki">
         <div>
           <p class="chat-header-name">Naruto Uzumaki</p>
           <p class="chat-header-status">En línea</p>

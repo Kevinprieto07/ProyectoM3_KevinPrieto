@@ -1,7 +1,7 @@
 import { formatMessage, validateInput } from './utils.js';
 
 /* Datos del personaje */
-const CHARACTER_INITIAL = 'N';
+const CHARACTER_AVATAR = '/src/assets/NarutoLogo.webp';
 const WELCOME_MESSAGE = 'Hola, soy Naruto Uzumaki, ¡de veras!';
 
 /* Memoria de la conversación*/
@@ -15,11 +15,12 @@ function scrollToBottom() {
   chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
-/* Crea el círculo con la inicial del personaje */
+/* Avatar Personaje */
 function createAvatar() {
-  const avatar = document.createElement('div');
+  const avatar = document.createElement('img');
   avatar.className = 'avatar';
-  avatar.textContent = CHARACTER_INITIAL;
+  avatar.src = CHARACTER_AVATAR;
+  avatar.alt = '';
   return avatar;
 }
 

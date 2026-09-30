@@ -51,6 +51,7 @@ body {
   line-height: 1.5;
   color: var(--color-text);
   background: var(--color-bg);
+  overflow-x: hidden; /* evita el scroll horizontal */
 }
 
 a {
@@ -60,11 +61,11 @@ a {
 /* Header y navegación */
 header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space);
+  gap: 0.25rem;
   min-height: var(--header-height);
-  padding: 0 var(--space);
+  padding: 0.5rem var(--space) 0.25rem;
   background: var(--color-header-bg);
   border-bottom: 3px solid var(--color-primary);
 }
@@ -75,7 +76,6 @@ header {
   color: var(--color-primary);
   text-decoration: none;
   white-space: nowrap;
-  /* contorno blanco: sombras sin desenfoque en las 8 direcciones */
   text-shadow:
     -1.5px -1.5px 0 #FFFFFF,
      0     -1.5px 0 #FFFFFF,
@@ -114,9 +114,11 @@ main#app {
   flex: 1;
   min-height: 0;   /* permite que los hijos hagan scroll interno */
   overflow-y: auto;
+  /* Imagen de fondo*/
+  background: var(--color-surface) url('/src/assets/FondoNaruto.jpg') center / cover no-repeat;
 }
 
-/* Home: cuadro centrado (el fondo de la página irá en .home) */
+/* Home: cuadro centrado */
 .home {
   display: flex;
   align-items: center;
@@ -137,6 +139,8 @@ main#app {
 
 .home-card h1 {
   margin: 1rem 0 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1.25;
   color: var(--color-primary-dark);
 }
 
@@ -145,17 +149,20 @@ main#app {
   color: var(--color-text-muted);
 }
 
-/* Avatar grande (Home) */
-.avatar-lg {
+/* Avatar grande (Home)*/
+.avatar.avatar-lg {
   width: 96px;
   height: 96px;
   margin: 0 auto;
-  font-size: 2.5rem;
 }
 
 /* Contenido (About) */
 .view {
+  margin: var(--space);
   padding: calc(var(--space) * 1.5) var(--space);
+  border-radius: 16px;
+  background: var(--color-bg);
+  box-shadow: var(--shadow-card);
 }
 
 .view h1 {
@@ -195,17 +202,13 @@ main#app {
 
 /* Avatars */
 .avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   flex-shrink: 0;
   width: 36px;
   height: 36px;
   border-radius: 50%;
+  object-fit: cover;
   background: var(--color-primary-dark);
-  color: var(--color-on-primary);
-  font-weight: 700;
-  font-size: 1rem;
   user-select: none;
 }
 
@@ -380,14 +383,26 @@ main#app {
     --space: 1.5rem;
   }
 
+  /* Header en una sola fila */
   header {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space);
     padding: 0 calc(var(--space) * 1.5);
+  }
+
+  .home-card h1 {
+    font-size: 2rem;
   }
 
   .view,
   .chat {
     max-width: 680px;
     margin: 0 auto;
+  }
+
+  .view {
+    margin: var(--space) auto;
   }
 
   .chat {
@@ -404,7 +419,6 @@ main#app {
 @media (min-width: 1024px) {
   main#app {
     padding: 2rem;
-    background: var(--color-surface);
   }
 
   header {
@@ -425,6 +439,7 @@ main#app {
   }
 
   .view {
+    margin: 0 auto;
     padding: 2.5rem;
   }
 
