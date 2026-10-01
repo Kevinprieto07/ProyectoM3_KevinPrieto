@@ -173,3 +173,14 @@ Navegador (chat.js)  ──POST { messages }──►  /api/functions  ──►
 **Kevin Prieto**: proyecto académico, Módulo 3.
 
 Naruto es un personaje creado por Masashi Kishimoto. Este proyecto tiene fines exclusivamente educativos y no tiene relación con los titulares de los derechos.
+
+---
+
+## Uso de IA:
+
+- Se utilizo Claude y Claude code como apoyo para la elaboración de este proyecto
+- El archivo principal del chat de claude se encuentra en la carpeta Documentación IA de este repositorio
+- Claude code intervino directamente en el código para la elaboración de tests, mejoras y arreglos
+del diseño de la página (A petición del autor) y organización del Readme.md 
+
+Todas las modificaciónes de IA fueron revisadas y validadas por (Kevin Prieto), autor del proyecto
